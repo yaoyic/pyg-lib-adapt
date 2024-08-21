@@ -68,3 +68,9 @@ jobs:
           cd ..
         shell: bash
 
+      - name: Upload the built wheel
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheel-py${{ matrix.python-version }}-torch${{ matrix.torch-version }}-${{ matrix.cuda-version }}
+          path: |
+                  dist/*.whl
